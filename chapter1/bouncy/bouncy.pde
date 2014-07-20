@@ -1,11 +1,12 @@
 PVector location;
 PVector velocity;
+int zheight = 200;
 
 void setup() {
   size(200, 200);
   smooth();
-  location = new PVector(100, 100);
-  velocity = new PVector(2.5, 5);
+  location = new PVector(100, 100, 0);
+  velocity = new PVector(2.5, 5, 1);
 }
 void draw() {
   background(255);
@@ -15,6 +16,9 @@ void draw() {
   }
   if ((location.y > height) || (location.y < 0)) {
     velocity.y = velocity.y * -1;
+  }
+  if ((location.z > zheight) || (location.z < 0)) {
+    velocity.z = velocity.z * -1;
   }
 
   stroke(0);

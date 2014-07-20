@@ -1,23 +1,19 @@
 class Walker {
-  int x;
-  int y;
+  PVector loc;
 
   Walker() {
-    x = width/2;
-    y = height/2;
+    loc = new PVector(width/2, height/2);
   }
 
   void display() {
     stroke(255);
-    point(x, y);
+    point(loc.x, loc.y);
   }
 
   void step() {
-    int stepx = int(random(3))-1;
-    int stepy = int(random(3))-1;
-
-    x += stepx;
-    y += stepy;
+    PVector step = PVector.random2D();
+    step.random2D();
+    loc.add(step);
   }
 }
 
